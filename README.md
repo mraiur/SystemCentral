@@ -1,3 +1,5 @@
+![Schema](https://drive.google.com/open?id=0B8YySvzxJbjqdldpdWdMTi1mYVU)
+
 Setup project for less problematic deployment.
 The idea is to have two versions of the project and toggle them.
 
