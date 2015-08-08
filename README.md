@@ -1,4 +1,3 @@
-
 Setup project for less problematic deployment.
 The idea is to have two versions of the project and toggle them.
 
@@ -11,6 +10,14 @@ When you run the ***publish*** command will switch the versions.
 beta -> active
 
 active -> beta
+
+## Running the commands
+```
+./systemcentral.sh example.com setup
+
+./systemcentral.sh example.com publish
+```
+Where 'example.com' is folder in projectConfigs
 
 # Required for project setup
 In projectConfigs create a folder for scripts required to deploy your project
