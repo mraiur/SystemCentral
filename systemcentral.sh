@@ -7,7 +7,7 @@ if [ "$1" == "" ]; then
     logWhite "Select a configuration"
     echo $configurationFiles;
 elif [ -d "./projectConfigs/"$1 ]; then
-    commands=(setup publish update-beta);
+    commands=(setup publish update-beta offline online);
 
     if [ "$2" == "" ]; then
         logGreen "Actions:"
@@ -25,6 +25,7 @@ elif [ -d "./projectConfigs/"$1 ]; then
         do
             if [ "$2" == "$cmd" ]; then
               hasHandler=true;
+
               if [ "$cmd" == "publish" ]; then
                 version=0
                 if [ -f $DEPLOY_FOLDER"version" ]; then
@@ -52,6 +53,20 @@ elif [ -d "./projectConfigs/"$1 ]; then
                 fi
                 logGreen "Execute project specific publish.sh script."
                 source ./projectConfigs/$1/$2".sh";
+              elif [ "$cmd" == "online" ]; then
+                unlink $DEPLOY_PATH
+                version=$(cat $DEPLOY_FOLDER"version");
+                ln -s $DEPLOY_FOLDER$version $DEPLOY_PATH
+                logGreen "Online version "$version;
+              elif [ "$cmd" == "offline" ]; then
+                logGreen "Execute project specific publish.sh script."
+                source ./projectConfigs/$1/$2".sh";
+
+                unlink $DEPLOY_PATH_BETA
+                unlink $DEPLOY_PATH
+
+                logGreen "Linked active to offline";
+                ln -s $DEPLOY_FOLDER"offline" $DEPLOY_PATH
               else
                 source ./projectConfigs/$1/$2".sh";
               fi

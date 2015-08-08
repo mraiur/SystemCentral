@@ -18,6 +18,10 @@ active -> beta
 ./systemcentral.sh example.com publish
 
 ./systemcentral.sh example.com update-beta
+
+./systemcentral.sh example.com offline
+
+./systemcentral.sh example.com online
 ```
 Where 'example.com' is folder in projectConfigs
 
@@ -60,3 +64,9 @@ The current version is stored in tje $DEPLOY_VOLDER/version file.
 
 ## update-beta
 This script must updates the beta version of the project.
+
+## offline
+Unlinks the two version and executes offline.sh and links to offline folder.
+
+## online
+Unlinks offline folder and links the active to the version stored in "version" file.
