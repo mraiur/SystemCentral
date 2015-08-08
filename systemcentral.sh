@@ -50,7 +50,8 @@ elif [ -d "./projectConfigs/"$1 ]; then
                     ln -s $DEPLOY_FOLDER$activeVersion $DEPLOY_PATH
                     echo $activeVersion > $DEPLOY_FOLDER"version"
                 fi
-                #echo $DEPLOY_PATH;
+                logGreen "Execute project specific publish.sh script."
+                source ./projectConfigs/$1/$2".sh";
               else
                 source ./projectConfigs/$1/$2".sh";
               fi
