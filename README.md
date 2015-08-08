@@ -16,6 +16,8 @@ active -> beta
 ./systemcentral.sh example.com setup
 
 ./systemcentral.sh example.com publish
+
+./systemcentral.sh example.com update-beta
 ```
 Where 'example.com' is folder in projectConfigs
 
@@ -57,4 +59,4 @@ Remove the current symlinks for active and beta versions and switch them.
 The current version is stored in tje $DEPLOY_VOLDER/version file.
 
 ## update-beta
-This script must update the project.
+This script must updates the beta version of the project.

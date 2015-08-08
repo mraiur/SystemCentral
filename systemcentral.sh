@@ -7,7 +7,7 @@ if [ "$1" == "" ]; then
     logWhite "Select a configuration"
     echo $configurationFiles;
 elif [ -d "./projectConfigs/"$1 ]; then
-    commands=(setup publish);
+    commands=(setup publish update-beta);
 
     if [ "$2" == "" ]; then
         logGreen "Actions:"
