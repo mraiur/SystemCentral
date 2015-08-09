@@ -52,6 +52,7 @@ elif [ -d "./projectConfigs/"$1 ]; then
                     echo $activeVersion > $DEPLOY_FOLDER"version"
                 fi
                 logGreen "Execute project specific publish.sh script."
+                logGreen "Active version: $activeVersion"
                 source ./projectConfigs/$1/$2".sh";
               elif [ "$cmd" == "online" ]; then
                 unlink $DEPLOY_PATH
