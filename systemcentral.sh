@@ -1,7 +1,7 @@
 #!/bin/bash
 . ./helpers.sh
 
-configurationFiles=$(find projectConfigs/ -type f -printf "%f\n");
+configurationFiles=$(cd projectConfigs/ && find -type d -printf "%f\n");
 
 if [ "$1" == "" ]; then
     logWhite "Select a configuration"
