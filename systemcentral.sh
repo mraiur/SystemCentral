@@ -44,11 +44,16 @@ elif [ -d "./projectConfigs/"$1 ]; then
                       activeVersion="1"
                       betaVersion="2"
                     fi
+
                     unlink $DEPLOY_PATH_BETA
                     unlink $DEPLOY_PATH
 
+                    echo "link "$DEPLOY_FOLDER$betaVersion" to "$DEPLOY_PATH_BETA;
                     ln -s $DEPLOY_FOLDER$betaVersion $DEPLOY_PATH_BETA
+
+                    echo "link "$DEPLOY_FOLDER$activeVersion" to "$DEPLOY_PATH
                     ln -s $DEPLOY_FOLDER$activeVersion $DEPLOY_PATH
+
                     echo $activeVersion > $DEPLOY_FOLDER"version"
                 fi
                 logGreen "Execute project specific publish.sh script."

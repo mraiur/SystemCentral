@@ -72,3 +72,16 @@ Unlinks the two version and executes offline.sh and links to offline folder.
 
 ## online
 Unlinks offline folder and links the active to the version stored in "version" file.
+
+
+# Known issues
+
+## php-fpm fastcgi 
+The problems is that fastcgi caches the file location.
+To fix the problem on each vhost you must add these parameters.
+This will make the fpm to read real path.
+
+```
+fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+fastcgi_param DOCUMENT_ROOT $realpath_root; 
+```
