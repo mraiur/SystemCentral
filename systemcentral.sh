@@ -1,4 +1,9 @@
 #!/bin/bash
+START_DIR=$(pwd)
+CENTER_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}"  )" && pwd  )"
+
+cd $CENTER_DIR;
+
 . ./helpers.sh
 
 configurationFiles=$(cd projectConfigs/ && find -type d -printf "%f\n");
@@ -86,3 +91,5 @@ elif [ -d "./projectConfigs/"$1 ]; then
 else
   logRed "Invalid configuration file provided."
 fi
+
+cd $START_DIR
