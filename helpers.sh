@@ -24,3 +24,11 @@ function logWhite {
 function actionMessage {
   echo -e $CL_GREEN"----------------------- "$1" -----------------------"$CL_CLEAR;
 }
+
+function Step {
+	echo -e $CL_GREEN"----------------------- "$1" -----------------------"$CL_CLEAR;
+	echo -e $CL_GREEN"----------------------------------------------------"$CL_CLEAR;
+	echo -e $CL_WHITE"["$1"]"$CL_GREEN" "$2" "$CL_CLEAR;
+	echo -e $CL_GREEN"----------------------------------------------------"$CL_CLEAR;
+	
+}
